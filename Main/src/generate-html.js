@@ -1,8 +1,8 @@
-function generateHtml(data)
+// function generateHtml(data)
 
 
-const managerHtml = manager => {
+// const managerHtml = manager => {
     
-}
+// }
 
-module.exports = generate-html;
+// module.exports = generate-html;

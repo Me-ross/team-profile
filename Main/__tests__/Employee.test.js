@@ -12,68 +12,68 @@ describe("Employee", () => {
 // Testing that you can correctly set, the name property, of an employee instance:
   it('Should set name via constructor arguments', () => {
     // Arrange
-    const testValue = 'Pollux';
+    const testNameVal = 'Niloufar';
     // Act
-    const newEmp = new Employee(testValue);
+    const newEmp = new Employee(testNameVal);
     // Assert
-    expect(newEmp.name).toEqual(testValue);
+    expect(newEmp.name).toEqual(testNameVal);
   });
 
 // Testing that you can correctly set, the id property, of an employee instance:
   it('Should set id via constructor arguments', () => {
     // Arrange
-    const testValue = 5;
+    const testIdVal = 5;
     // Act
-    const newEmp = new Employee('Pollux', testValue);
+    const newEmp = new Employee('Niloufar', testIdVal);
     // Assert
-    expect(newEmp.id).toEqual(testValue);
+    expect(newEmp.id).toEqual(testIdVal);
   });
 
 // Testing that you can correctly set, the email property, of an employee instance:
   it('Should set email via constructor arguments', () => {
     // Arrange
-    const testValue = 'jane@gmail.com';
+    const testEmailVal = 'niloufar@gmail.com';
     // Act
-    const newEmp = new Employee('Pollux', 5, testValue);
+    const newEmp = new Employee('Niloufar', 5, testEmailVal);
     // Assert
-    expect(newEmp.email).toEqual(testValue);
+    expect(newEmp.email).toEqual(testEmailVal);
   });
 
 //Testing, that you can get the correct output from the getName() method of an employee instance:
   it('Should get name via getName()', () => {
     // Arrange
-    const testValue = 'Pollux';
-    const newEmp = new Employee(testValue);
+    const testNameVal = 'Jaleh';
+    const newNameInput = new Employee(testNameVal);
     // Act
-    const empName = newEmp.getName()
+    const empName = newNameInput.getName()
     // Assert
-    expect(empName).toEqual(testValue);
+    expect(empName).toEqual(testNameVal);
   });
 
 //Testing, that you can get the correct output from the getId() method of an employee instance:
   it('Should get id via getId()', () => {
     // Arrange
-    const testValue = 5;
-    const newEmp = new Employee('Pollux', testValue);
+    const testIdVal = 27;
+    const newIdInput = new Employee('Jaleh', testIdVal);
     // Act
-    const empId = newEmp.getId()
+    const empId = newIdInput.getId()
     // Assert
-    expect(empId).toEqual(testValue);
+    expect(empId).toEqual(testIdVal);
   });
 //Testing, that you can get the correct output from the getEmail() method of an employee instance:
   it('Should get email via getEmail()', () => {
     // Arrange
-    const testValue = 'jane@gmail.com';
-    const newEmp = new Employee('Pollux', 5, testValue);
+    const testEmailVal = 'jaleh@gmail.com';
+    const newEmailInput = new Employee('Jaleh', 27, testEmailVal);
     // Act
-    const empEmail = newEmp.getEmail()
+    const empEmail = newEmailInput.getEmail()
     // Assert
-    expect(empEmail).toEqual(testValue);
+    expect(empEmail).toEqual(testEmailVal);
   });
 //Testing, that you can get the correct output from the getRole() method of an employee instance:
   it('Should getRole() and return `Employee`', () => {
     const testValue = 'Employee';
-    const employee = new Employee('Pollux', 5, 'jane@gmail.com');
-    expect(employee).toEqual(testValue);
+    const employee = new Employee();
+    expect(employee.getRole()).toEqual(testValue);
   })
 });

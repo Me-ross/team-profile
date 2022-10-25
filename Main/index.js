@@ -3,7 +3,7 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-
+const generateHtml = require('./src/generate-html')
 const teamMembers = [];
 
 function createManager() {
@@ -26,12 +26,12 @@ function createManager() {
     },
     {
       type: 'input',
-      name: 'ManagerOfficeNumber',
+      name: 'managerOfficeNumber',
       message: 'What is your team manager`s office number?',
     },
    ])
    .then((answers) => {
-    const Manager = new Manager(
+    const manager = new Manager(
       answers.managerName,
       answers.managerId,
       answers.managerEmail,
@@ -92,7 +92,7 @@ function createEngineer() {
       },
     ])
     .then ((answers) => {
-      const Engineer = new Engineer(
+      const engineer = new Engineer(
         answers.engineerName,
         answers.engineerId,
         answers.engineerEmail,
@@ -128,7 +128,7 @@ function createIntern() {
       }
     ])
     .then((answers) => {
-      const Intern = new Intern(
+      const intern = new Intern(
         answers.internName,
         answers.internId,
         answers.internEmail,
@@ -141,9 +141,9 @@ function createIntern() {
    console.log(teamMembers);
 
 function buildTeam() {
-    fs.writeFile('./dist/teamprofile.html', teamMembers, function (err) {
-        err ? console.log(err) : console.log ('teamprofile.html created!')
-    })
+  const htmlPage = generateHtml(teamMembers)
+  fs.writeFile('./dist/teamProfile.html', htmlPage, (err) => err ? console.log(err) : console.log ('teamProfile.html created!')
+  );
 }
  
-  createManager();
+createManager();

@@ -70,5 +70,10 @@ describe("Employee", () => {
     // Assert
     expect(empEmail).toEqual(testValue);
   });
-
+//Testing, that you can get the correct output from the getRole() method of an employee instance:
+  it('Should getRole() and return `Employee`', () => {
+    const testValue = 'Employee';
+    const employee = new Employee('Pollux', 5, 'jane@gmail.com');
+    expect(employee).toEqual(testValue);
+  })
 });

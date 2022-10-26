@@ -6,8 +6,9 @@ describe("Intern", () => {
   it('Should set school via constructor arguments', () => {
     const testValue = 'ucla';
     const newIntrn = new Intern('Niloufar', 5, 'niloufar@gmail.com', testValue);
-    expect(newIntrn.internSchool).toEqual(testValue);
+    expect(newIntrn.school).toEqual(testValue);
   });
+  
   it('Should get school via getSchool()', () => {
     const testValue = 'ucla';
     const newIntrn = new Intern('Niloufar', 5, 'niloufar@gmail.com', testValue);

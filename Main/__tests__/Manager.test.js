@@ -12,7 +12,7 @@ describe("Manager", () => {
   it('Should get office# via getOfficeNumber()', () => {
     const testValue = 415;
     const newMngr = new Manager('Niloufar', 5, 'niloufar@gmail.com', testValue);
-    const mngNum = newMngr.getOfficeNumber();
+    const mngNum = newMngr.getofficeNumber();
     expect(mngNum).toEqual(testValue);
   })  
 //Testing, that you can get the correct output from the getRole() method of a Manager instance:

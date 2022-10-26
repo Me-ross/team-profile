@@ -35,9 +35,11 @@ function createManager() {
       answers.managerName,
       answers.managerId,
       answers.managerEmail,
-      answers.managerOfficeNumber
+      answers.managerOfficeNumber,
     );
     teamMembers.push(manager);
+    console.log(manager);
+    console.log(teamMembers);
     createTeam();
    })
 }
@@ -61,8 +63,8 @@ function createTeam() {
           createIntern();
             break;
         case 'finished building my team':
-         buildTeam();
-          break;
+          buildTeam(teamMembers);
+            break;
         }
     })
 }
@@ -98,7 +100,9 @@ function createEngineer() {
         answers.engineerEmail,
         answers.engineerGithub,
       );
-      teamMembers.push(engineer)
+      teamMembers.push(engineer);
+      console.log(engineer);
+      console.log(teamMembers);
       createTeam();
     })
 }
@@ -135,12 +139,16 @@ function createIntern() {
         answers.internSchool,
       );
       teamMembers.push(intern);
+      console.log(intern);
+      console.log(teamMembers);
       createTeam();
     })
 }
-   console.log(teamMembers);
+   
 
-function buildTeam() {
+function buildTeam(teamMembers) {
+  console.log('arrived at buildTeam');
+  console.log(teamMembers);
   const htmlPage = generateHtml(teamMembers)
   fs.writeFile('./dist/teamProfile.html', htmlPage, (err) => err ? console.log(err) : console.log ('teamProfile.html created!')
   );

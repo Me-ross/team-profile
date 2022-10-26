@@ -12,7 +12,7 @@ describe("Engineer", () => {
 it('Should get github username via getGitHub()', () => {
   const testValue = 'gituser';
   const newEngr = new Engineer('Niloufar', 5, 'niloufar@gmail.com', testValue);
-  const engGit = newEngr.getGitHub();
+  const engGit = newEngr.getGithub();
   expect(engGit).toEqual(testValue);
 })
 //Testing, that you can get the correct output from the getRole() method of a Engineer instance:

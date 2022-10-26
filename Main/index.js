@@ -6,6 +6,7 @@ const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generate-html')
 const teamMembers = [];
 
+function init(){
 function createManager() {
   inquirer
     .prompt([
@@ -145,7 +146,6 @@ function createIntern() {
     })
 }
    
-
 function buildTeam(teamMembers) {
   console.log('arrived at buildTeam');
   console.log(teamMembers);
@@ -155,3 +155,5 @@ function buildTeam(teamMembers) {
 }
  
 createManager();
+}
+init();

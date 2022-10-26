@@ -1,9 +1,10 @@
 const Intern = require("../lib/Intern");
 const Employee = require("../lib/Employee");
 
+
 describe("Intern", () => {
 // Testing that you can correctly set, the school property, of an Intern instance:
-  it('Should set school via constructor arguments', () => {
+it('Should set school via constructor arguments', () => {
     const testValue = 'ucla';
     const newIntrn = new Intern('Niloufar', 5, 'niloufar@gmail.com', testValue);
     expect(newIntrn.school).toEqual(testValue);

@@ -3,7 +3,8 @@ const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const generateHtml = require('./src/generate-html')
+const htmlPage = require('./src/generate-html');
+const Employee = require('./lib/Employee');
 const teamMembers = [];
 
 function init(){
@@ -38,8 +39,10 @@ function createManager() {
       answers.managerEmail,
       answers.managerOfficeNumber,
     );
+    managers.push(manager);
     teamMembers.push(manager);
     console.log(manager);
+    console.log('teamMembers')
     console.log(teamMembers);
     createTeam();
    })
@@ -52,7 +55,7 @@ function createTeam() {
         type: 'list',
         name: 'choiceOfRole',
         message: 'What type of employee would you like  to add?',
-        choices:['Engineer', 'Intern', 'finished  building my team'],
+        choices:['Engineer', 'Intern', 'None'],
       },
     ])
     .then((choice) => {
@@ -63,8 +66,9 @@ function createTeam() {
         case 'Intern':
           createIntern();
             break;
-        case 'finished building my team':
-          buildTeam(teamMembers);
+        case 'None':
+          console.log('end choice');
+          buildTeam();
             break;
         }
     })
@@ -101,8 +105,10 @@ function createEngineer() {
         answers.engineerEmail,
         answers.engineerGithub,
       );
-      teamMembers.push(engineer);
+      engineers.push(engineer);
+      teamMembers.push(engineer)
       console.log(engineer);
+      console.log('teamMembers')
       console.log(teamMembers);
       createTeam();
     })
@@ -139,21 +145,24 @@ function createIntern() {
         answers.internEmail,
         answers.internSchool,
       );
-      teamMembers.push(intern);
+      interns.push(intern);
+      teamMembers.push(intern)
       console.log(intern);
+      console.log('teamMembers')
       console.log(teamMembers);
       createTeam();
     })
 }
-   
-function buildTeam(teamMembers) {
-  console.log('arrived at buildTeam');
-  console.log(teamMembers);
-  const htmlPage = generateHtml(teamMembers)
-  fs.writeFile('./dist/teamProfile.html', htmlPage, (err) => err ? console.log(err) : console.log ('teamProfile.html created!')
+
+
+function buildTeam() {
+  console.log('arrived at buildteam')
+  fs.writeFile('./dist/teamProfile.html', htmlPage(teamMembers), (err) => err ? console.log(err) : console.log ('teamProfile.html created!')
   );
 }
  
 createManager();
 }
 init();
+
+

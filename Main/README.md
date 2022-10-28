@@ -31,7 +31,7 @@ SO THAT I have quick access to their emails and GitHub profiles
 - If finsihed building team is selected then exit the application and generate the HTML file.
 
 The following image shows a mockup of the generated HTML appearance and functionality.
-![Text page with 3 sections showing employee information](./dist/Img/My%20Team.png))
+![Text page with 3 sections showing employee information](./dist/Img/My%20Team.png)
 
 - Must include Employee, Manager, Engineer, Intern classes
 - Test for each class properties, name, id, email, getName, getId, getEmail, getRole

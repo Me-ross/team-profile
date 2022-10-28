@@ -40,7 +40,7 @@ The following image shows a mockup of the generated HTML appearance and function
 - for Intern also test for school, getSchool and getRole
 
 ## Video
-You can see a video demonstration for this app [here](https://drive.google.com/file/d/1Kdy-LCWKGvs9MOGCHemQ8nI4V8VXdhcd/view)
+You can see a video demonstration for this app [here](https://app.castify.com/view/703550d6-b0cc-4d48-8552-bd07c69f5de2)
 
 ## GitHub 
 ReRepository for Team Profile application can be found at: [GitHub](https://github.com/Me-ross/team-profile/tree/main/Main)

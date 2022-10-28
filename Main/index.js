@@ -1,12 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const htmlPage = require('./src/generate-html');
-const Employee = require('./lib/Employee');
+
 const teamMembers = [];
 
+// Prompt for questions regarding Manager Information
 function init(){
 function createManager() {
   inquirer
@@ -44,13 +46,14 @@ function createManager() {
    })
 }
 
+// give choice of how to continue
 function createTeam() {
   inquirer
     .prompt([
       {
         type: 'list',
         name: 'choiceOfRole',
-        message: 'What type of employee would you like  to add?',
+        message: 'What type of employee would you like to add?',
         choices:['Engineer', 'Intern', 'None'],
       },
     ])
@@ -69,6 +72,7 @@ function createTeam() {
     })
 }
 
+// Prompt for questions regarding Engineer Information
 function createEngineer() {
   inquirer
     .prompt([
@@ -105,6 +109,7 @@ function createEngineer() {
     })
 }
 
+// Prompt for questions regarding Intern Information
 function createIntern() {
   inquirer
     .prompt([
@@ -141,10 +146,8 @@ function createIntern() {
     })
 }
 
-
+// write HTML file
 function buildTeam() {
-  console.log('arrived at buildteam')
-  console.log(teamMembers)
   fs.writeFile('./dist/teamProfile.html', htmlPage(teamMembers), (err) => err ? console.log(err) : console.log ('teamProfile.html created!')
   );
 }

@@ -1,11 +1,8 @@
 
 let combineEmployees = '';
 
+//  generate html main page
 const htmlPage = employeeInfo => {
-    // console.log(employeeInfo);
-    // employeeInfo.forEach(Employee => {
-    //     console.log(Employee)
-    // });
     return`<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -35,6 +32,7 @@ const htmlPage = employeeInfo => {
     <div class="container">
       <div class="row">
         <div class="col-12 d-flex justify-content-center team">
+        
         ${generateEmployees(employeeInfo)}
   
         </div>
@@ -45,13 +43,12 @@ const htmlPage = employeeInfo => {
   </html>    
     `;
 }
-
+// generate the employee sections using the array of employees exported from index file
 function generateEmployees(employeeInfo){
-  console.log('generateEmployees function')
-  console.log(employeeInfo)
+  // loop through the employee array to handle each type of employee differently
   for (let i = 0; i < employeeInfo.length; i++){
     const currentEmp = employeeInfo[i];
-    console.log(employeeInfo[i]);
+    // look for the employee with Manager as Role and build HTML
     if(currentEmp.getRole() === 'Manager'){
       const managerHtml = `<div class="card employee m-2">
       <div class="card-header">
@@ -67,9 +64,10 @@ function generateEmployees(employeeInfo){
         </div>
       </div>`;
 
+  // Start buidling the employee info section with Manager and add to it
       combineEmployees = combineEmployees + managerHtml;
-      console.log(combineEmployees)
-
+  
+// look for the employee with Engineer as Role and build HTML
     } else if(currentEmp.getRole() === 'Engineer'){
         const engrHtml = `<div class="card employee m-2">
           <div class="card-header">
@@ -84,14 +82,10 @@ function generateEmployees(employeeInfo){
             </ul>
           </div>
         </div> `;
-
+// add engineers to the Managers string
         combineEmployees = combineEmployees + engrHtml;
-      console.log(combineEmployees)
-        // combineEmployees.join(engrHtml);
-        // combineEmployees.concat(engrHtml);
-    
-
-
+   
+// look for the employee with Intern as Role and build HTML
     } else if(currentEmp.getRole() === 'Intern'){
         const internHtml = `<div class="card employee m-2">
           <div class="card-header">
@@ -107,17 +101,14 @@ function generateEmployees(employeeInfo){
             </div>
           </div> `;
 
-        //   combineEmployees.join(internHtml)
+// Add Intern to the manager and engineer string
         combineEmployees = combineEmployees + internHtml;
-        console.log(combineEmployees)
         } else if(i > employeeInfo.length){
-            console.log(combineEmployees);
             return 
-            
         }
   }
   return combineEmployees;
 }
 
-
+// export html page to create the HTML file
 module.exports = htmlPage

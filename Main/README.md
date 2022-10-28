@@ -1,7 +1,7 @@
 # team-profile
 Generate Employees Team Profile
 
-UCLA Bootcamp Challenge  - Module 6
+UCLA Bootcamp Challenge  - Module 10
 
 Due Date 10/25/2022
 

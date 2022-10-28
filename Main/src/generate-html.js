@@ -1,5 +1,6 @@
 
-// console.log(teamMembers);
+let combineEmployees = '';
+
 const htmlPage = employeeInfo => {
     // console.log(employeeInfo);
     // employeeInfo.forEach(Employee => {
@@ -16,7 +17,7 @@ const htmlPage = employeeInfo => {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous"/>
-        <link rel="stylesheet" href="./Main/dist/style.css">
+        <link rel="stylesheet" href="./style.css">
         <title>Team Profile</title>
     </head>
     <body>
@@ -49,27 +50,31 @@ function generateEmployees(employeeInfo){
   console.log('generateEmployees function')
   console.log(employeeInfo)
   for (let i = 0; i < employeeInfo.length; i++){
-      currentEmp = employeeInfo[i];
+    const currentEmp = employeeInfo[i];
+    console.log(employeeInfo[i]);
     if(currentEmp.getRole() === 'Manager'){
-      return`  <div class="card employee m-2">
+      const managerHtml = `<div class="card employee m-2">
       <div class="card-header">
         <h5 class="card-title">${currentEmp.name}</h5>
-        <h5 class="card-title"><i class="fas fa-mug-hot -2"></i>Manager</h5>
+        <h5 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h5>
       </div>
         <div class="card-body">
           <ul class="list-group">
-            <li class="list-group-item ">ID:$urrentEmp.id}li>
-            <li class="list-group-item">Email: <a ="mailto:${currentEmp.email}">$urrentEmp.email}</a></li>
-            <li class="list-group-item">Office numr:$urrentEmp.officeNumber}</li>
+            <li class="list-group-item ">ID: ${currentEmp.id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${currentEmp.email}">${currentEmp.email}</a></li>
+            <li class="list-group-item">Office number: ${currentEmp.officeNumber}</li>
           </ul>
         </div>
       </div>`;
+
+      combineEmployees = combineEmployees + managerHtml;
+      console.log(combineEmployees)
+
     } else if(currentEmp.getRole() === 'Engineer'){
-        console.log('Engineer')
-        return` <div class="card employee m-2">
+        const engrHtml = `<div class="card employee m-2">
           <div class="card-header">
           <h5 class="card-title">${currentEmp.name}</h5>
-          <h5 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h5>
+          <h5 class="card-title"><i class="fas fa-glasses mr-2"></i> Engineer</h5>
           </div>
           <div class="card-body">
             <ul class="list-group">
@@ -79,12 +84,19 @@ function generateEmployees(employeeInfo){
             </ul>
           </div>
         </div> `;
+
+        combineEmployees = combineEmployees + engrHtml;
+      console.log(combineEmployees)
+        // combineEmployees.join(engrHtml);
+        // combineEmployees.concat(engrHtml);
+    
+
+
     } else if(currentEmp.getRole() === 'Intern'){
-        console.log('Intern')
-        return`<div class="card employee m-2">
+        const internHtml = `<div class="card employee m-2">
           <div class="card-header">
             <h5 class="card-title">${currentEmp.name}</h5>
-            <h5 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Intern</h5>
+            <h5 class="card-title"><i class="fas fa-user-graduate mr-2"></i> Intern</h5>
           </div>
             <div class="card-body">
               <ul class="list-group">
@@ -94,74 +106,18 @@ function generateEmployees(employeeInfo){
               </ul>
             </div>
           </div> `;
-        } else {
-            console.log('error')
+
+        //   combineEmployees.join(internHtml)
+        combineEmployees = combineEmployees + internHtml;
+        console.log(combineEmployees)
+        } else if(i > employeeInfo.length){
+            console.log(combineEmployees);
+            return 
+            
         }
-    }
+  }
+  return combineEmployees;
 }
-    
-//   const managerHtml = manager => {
-//     console.log(manager);
-//       return`
-//       <div class="card employee m-2">
-//       <div class="card-header">
-//         <h5 class="card-title">${manager.getName()}</h5>
-//         <h5 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h5>
-//       </div>
-//       <div class="card-body">
-//         <ul class="list-group">
-//           <li class="list-group-item ">ID: ${manager.getId()}</li>
-//           <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-//           <li class="list-group-item">Office number: ${manager.getofficeNumber()}</li>
-//         </ul>
-//       </div>
-//     </div>`;
-//   };
-  
-//   const engineerProfile = engineer => {
-//     return`
-//     <div class="card employee m-2">
-//     <div class="card-header">
-//       <h5 class="card-title">${engineer.getName()}</h5>
-//       <h5 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h5>
-//     </div>
-//     <div class="card-body">
-//       <ul class="list-group">
-//         <li class="list-group-item ">ID: ${engineer.getId()}</li>
-//         <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-//         <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" >${engineer.getGithub()}</a></li>
-//       </ul>
-//     </div>
-//   </div>`;
-//   };
-
-//   const internProfile = intern => {
-//     return`
-//     <div class="card employee m-2">
-//     <div class="card-header">
-//       <h5 class="card-title">${intern.getName()}</h5>
-//       <h5 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h5>
-//     </div>
-//     <div class="card-body">
-//       <ul class="list-group">
-//         <li class="list-group-item ">ID: ${intern.getId()}</li>
-//         <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-//         <li class="list-group-item">School: ${intern.getSchool()} </li>
-//       </ul>
-//     </div>
-//   </div>`;
-//   };
 
 
-// const combineHtml = [];
-
-// combineHtml.push(managerProfile);
-
-// combineHtml.push(employeeInfo.filter())
-
-// function engineers(teamMembers) {
-//     let engineers = teamMembers.filter(getRole() === 'Engineer');
-//     console.log(engineers);
-// }
-// engineers();
 module.exports = htmlPage

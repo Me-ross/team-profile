@@ -1,0 +1,29 @@
+:root {
+  --beige1: #d5bdaf;
+  --beige3: #f5ebe0;
+  --brown: #432818;
+}
+
+header, body {
+    background-color: var(--beige1);
+    color: var(--brown);
+}
+
+h1 {
+    background-color:   var(--beige3);
+    text-align: center;
+    padding: 10px; 
+}
+
+.team {
+    padding: 0;
+}
+
+.container {
+    padding: 10px;   
+}
+
+.card-body {
+    background-color: var(--beige3);
+}
+
